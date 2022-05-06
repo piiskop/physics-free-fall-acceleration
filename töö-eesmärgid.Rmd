@@ -6,6 +6,6 @@ output:
 
 # Töö eesmärgid
 
-1.  Õppida opereerima jõudude näitlike kujutistega.
+1.  Vaba langemise kiirenduse määramine fotovärava ja triipriba abil.
 
-2.  Uurida katseliselt jõudude kui vektorite liitmist.
+2.  Andmetöötluse regressioonanalüüsi meetodi tundmaõppimine PASCO *DataStudio* (DS) tarkvara abil.

@@ -1,21 +1,7 @@
 # Töö vahendid
 
-1.  Kaks dünamomeetrit,
+1.  PASCO *Science Workshop* 500, 700, 750 (SW) või *xPlorer* GLX'i liides (PASCO *Digital Adapter*iga),
 
-2.  tugev nöör,
+2.  fotovärav statiiviga,
 
-3.  raudvarb,
-
-4.  koormiste komplekt,
-
-5.  vineertahvel,
-
-6.  mõõtejoonlaud,
-
-7.  mall,
-
-8.  sirkel,
-
-9.  valgusallikas (taskulamp vms) - meie ei kasutanud valgusallikat,
-
-10. viltpliiats või marker - meie ei kasutanud.
+3.  triipriba.

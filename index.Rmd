@@ -1,15 +1,15 @@
 --- 
-title: "Jõudude liitmine"
+title: "Vaba langemise kiirenduse määramine"
 author: 'peacecop kalmer:, Risto Koor'
 number: 1
 #date: "`r Sys.Date()`"
-date-work: "20220317"
-date-handing-over: "20220422"
+date-work: "20220311"
+date-handing-over: "20220506"
 group: "MLLBk-1"
 site: bookdown::bookdown_site
 documentclass: article
 download: ["pdf"]
-bibliography: sample.bib
+bibliography: references.bib
 description: |
   This is a minimal example of using the bookdown package to write a book.
   set in the _output.yml file.
@@ -31,3 +31,33 @@ lang: et
 link-citations: yes
 #subtitle: LABORATOORNE TÖÖ 1
 ---
+
+```{r setup, echo = FALSE}
+# example R options set globally
+options(width = 60)
+options(bookdown.render.file_scope = FALSE)
+# example chunk options set globally
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  echo = TRUE
+  )
+knitr::opts_chunk$set(out.height = "\\textheight",  out.width = "\\textwidth",
+                      out.extra = "keepaspectratio=true")
+knitr::opts_chunk$set(fig.margin = TRUE)
+include_svg = function(path) {
+  if (knitr::is_latex_output()) {
+    output = xfun::with_ext(path, 'pdf')
+    # you can compare the timestamp of pdf against svg to avoid conversion if necessary
+    system2('rsvg-convert', c('-f', 'pdf', '-a', '-o', shQuote(c(output, path))))
+  } else {
+    output = path
+  }
+  knitr::include_graphics(output)
+}
+if (!require("librarian")) {
+  install.packages("librarian", dependencies = TRUE)
+}
+
+library(librarian)
+```

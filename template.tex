@@ -25,7 +25,6 @@
 	onecolumn
 ]{CSUniSchoolLabReport}
 \usepackage{csquotes}
-%\addbibresource{sample.bib} % Bibliography file (located in the same folder as the template)
 \titleformat*{\section}{\LARGE\sffamily\bfseries}
 \titleformat*{\subsection}{\Large\sffamily\bfseries}
 \titleformat*{\subsubsection}{\large\sffamily\bfseries\hyphenchar\font=-1}
@@ -87,23 +86,8 @@ $endif$
     \multicolumn{2}{|m{0.4\textwidth}|}{\raggedright\textbf{Töö sooritamise kuupäev:} $date-work$} & {\textbf{Vastutav õppejõud:}} \\ \cline{1-3}
     \multicolumn{2}{|m{0.4\textwidth}|}{\raggedright\textbf{Töö esitamise kuupäev:} $date-handing-over$} & {\textbf{Tulemus:}} \\ \cline{1-2}
     \multicolumn{2}{|m{0.4\textwidth}|}{\textbf{Töö kaitsmise kuupäev:} } & \\ \cline{1-3}
-    {\textbf{Töö nr.} $number$} & \multicolumn{2}{|m{0.8\textwidth}|}{\textbf{Töö pealkiri} \LARGE{$title$}} \\ \hline
+    {\textbf{Töö nr.} $number$} & \multicolumn{2}{|m{0.8\textwidth}|}{\textbf{Töö pealkiri} \hfill \LARGE{$title$}} \\ \hline
 \end{tabular}
-%\maketitle % Insert the title, author and date using the information specified above
-\begin{comment}
-\begin{center}
-	\begin{tabular}{l r}
-		Date Performed: & February 13, 2022 \\ % Date the experiment was performed
-		Partners: & Cecilia \textsc{Smith} \\ % Partner names
-		& Tajel \textsc{Khumalo} \\
-		Instructor: & Professor \textsc{Rivera} % Instructor/supervisor
-	\end{tabular}
-\end{center}
-\end{comment}
-% If you need to include an abstract, uncomment the lines below
-%\begin{abstract}
-%	Abstract text
-%\end{abstract}
 
 $if(toc)$
   \hypersetup{

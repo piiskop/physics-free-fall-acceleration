@@ -2,6 +2,58 @@
 
 ## Teoreetilised alused
 
+Kui objekt langeb vabalt, siis tema liikumine kiireneb tänu talle mõjuvale raskusjõule. Kui õhutakistus jätta arvestamata ning mõta objekti kiirust järjestikku lühikeste ajavahemike järel, siis objekti kiiruste erinevusi saame kasutada vaba langemise kiirenduse määramiseks. Matemaatiliselt on kiirus tuletis koordinaadist aja järgi ehk $v = lim_{\Delta(t) \rightarrow 0}{\frac{\Delta(x)}{\Delta(t)} = \frac{d(x)}{d(t)}}$. Kiirendus on tuletis kiirusest aja järgi ehk $a = lim_{\Delta(t) \rightarrow 0}{\frac{\Delta(\overrightarrow{v})}{\Delta(t)}} = \frac{d(\overrightarrow{v})}{d(t)} = \frac{d(\frac{d(x)}{d(t)})}{d(t)}$ [@erichardcohen_1987_symbols p. 28]. Sellist liikumist nimetatakse ühtlaselt kiirenevaks liikumiseks ning keha kiiruse muutumist liikumise jooksul kirjeldab siis valem \@ref(eq:velocity):
+
+```{=tex}
+\begin{align}
+\overrightarrow{v} = \overrightarrow{v_0} + \overrightarrow{a} \times t.
+(\#eq:velocity)
+\end{align}
+```
+
+Sellisel juhul on kiiruse ja aja vahel vastavalt valemile \@ref(eq:velocity) lineaarne sõltuvus ehk kiirus-aeg-graafikuks peaks tulema sirge nagu joonisel \@ref(fig:velocity-time-figure):
+
+```{=tex}
+\begin{figure}
+```
+
+```{r velocity-time}
+librarian::shelf(ggplot2, latex2exp)
+x <- seq(0,10,length=10001)
+y <- 10 * x
+df <- data.frame(x = x, y = y)
+ggplot(data = df, aes(x = x, y = y)) + geom_line() + labs(x = TeX("$\\frac{t}{s}$"), y = TeX("$\\frac{v}{\\frac{m}{s}}$"))
+```
+
+```{=tex}
+      \caption{Kiirus-aeg-graafik ($v$ ja $t$) ühtlaselt kiireneva liikumise puhul, kui algkiirus $v_0 := 0$} \label{fig:velocity-time-figure}
+\end{figure}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Kuna jõud on vektoriaalne suurus, siis on jõul nii väärtus kui suund.
 Vektoreid saab liita. Sihitisele mõjuva koondjõu vektor on sellele
 sihitisele mõjuvate jõudude vektorite summa. Kui ese on taustsüsteemi
