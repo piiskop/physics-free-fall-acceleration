@@ -1,9 +1,6 @@
-# Katseseadmete skeemid
+# Katseseadme skeem
 
-```{r setting-up-test-device, fig.cap = "Katseseadme ülesseadmine", fig.margin = TRUE}
+```{r setting-up-test-device, fig.cap = "Fotovärava asetus vaba langemise kiirenduse määramiseks", fig.margin = TRUE}
 include_svg("katseseadme-ülesseadmine/katseseadme-ülesseadmine.svg")
 ```
 
-```{r schema-joining-parallel-forces, fig.cap = "Katseseadme skeem rööpsete jõudude liitmiseks", fig.margin = TRUE}
-include_svg(file.path("katseseadme-ülesseadmine", "katseseadme-skeem-rööpsete-jõudude-liitmiseks.svg"))
-```

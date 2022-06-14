@@ -22,22 +22,19 @@
 \documentclass[
 	a4paper, % Paper size, specify a4paper (A4) or letterpaper (US letter)
 	12pt, % Default font size, specify 10pt, 11pt or 12pt
+	twocolumn,
 	onecolumn
 ]{CSUniSchoolLabReport}
 \usepackage{csquotes}
-\titleformat*{\section}{\LARGE\sffamily\bfseries}
-\titleformat*{\subsection}{\Large\sffamily\bfseries}
+\titleformat*{\section}{\Large\sffamily\bfseries\hyphenchar\font=-1}
+\titleformat*{\subsection}{\large\sffamily\bfseries\hyphenchar\font=-1}
 \titleformat*{\subsubsection}{\large\sffamily\bfseries\hyphenchar\font=-1}
 %----------------------------------------------------------------------------------------
 %	REPORT INFORMATION
 %----------------------------------------------------------------------------------------
-
-\title{$title$ \\ Weight of Magnesium \\ CHEM 101} % Report title
-
 \author{$author$} % Author name(s), add additional authors like: '\& James \textsc{Smith}'
 
 \date{\today} % Date of the report
-\bibliography{sample}
 %----------------------------------------------------------------------------------------
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -71,9 +68,29 @@ $if(csl-refs)$
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
+% Caption format
+\DeclareCaptionFormat{custom}
+{%
+    #1#2\nohyphens{ #3}
+}
+\captionsetup
+{
+    format=custom
+}
 \onehalfspacing
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ top=20mm,
+ right=20mm,
+ bottom=20mm
+ }
 \begin{document}
 \setlength{\parskip}{12pt}
+\renewcommand{\arraystretch}{1}
+\setlength\arrayrulewidth{1pt}
 \begin{center}
 \textbf{\textsf{FÜÜSIKA LABORATOORNE TÖÖ}} \\
 \end{center}
@@ -103,21 +120,15 @@ $if(toc)$
 $endif$
 
 $if(lot)$
+  \hyphenpenalty=10000
   \listoftables
+  \hyphenpenalty=0
 $endif$
 
 $if(lof)$
+  \hyphenpenalty=10000
   \listoffigures
+  \hyphenpenalty=0
 $endif$
 $body$
-
-%----------------------------------------------------------------------------------------
-%	BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-%
-\bibliography{sample}
-\bibliography{packages}
-%\printbibliography % Output the bibliography
-%----------------------------------------------------------------------------------------
-
 \end{document}

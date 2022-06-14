@@ -2,7 +2,7 @@
 
 ## Teoreetilised alused
 
-Kui objekt langeb vabalt, siis tema liikumine kiireneb tänu talle mõjuvale raskusjõule. Kui õhutakistus jätta arvestamata ning mõta objekti kiirust järjestikku lühikeste ajavahemike järel, siis objekti kiiruste erinevusi saame kasutada vaba langemise kiirenduse määramiseks. Matemaatiliselt on kiirus tuletis koordinaadist aja järgi ehk $v = lim_{\Delta(t) \rightarrow 0}{\frac{\Delta(x)}{\Delta(t)} = \frac{d(x)}{d(t)}}$. Kiirendus on tuletis kiirusest aja järgi ehk $a = lim_{\Delta(t) \rightarrow 0}{\frac{\Delta(\overrightarrow{v})}{\Delta(t)}} = \frac{d(\overrightarrow{v})}{d(t)} = \frac{d(\frac{d(x)}{d(t)})}{d(t)}$ [@erichardcohen_1987_symbols p. 28]. Sellist liikumist nimetatakse ühtlaselt kiirenevaks liikumiseks ning keha kiiruse muutumist liikumise jooksul kirjeldab siis valem \@ref(eq:velocity):
+Kui objekt langeb vabalt, siis tema liikumine kiireneb tänu talle mõjuvale raskusjõule. Kui õhutakistus jätta arvestamata ning mõõta objekti kiirust järjestikku lühikeste ajavahemike järel, siis objekti kiiruste erinevusi saame kasutada vaba langemise kiirenduse määramiseks. Matemaatiliselt on kiirus tuletis koordinaadist aja järgi ehk $v = lim_{\Delta(t) \rightarrow 0}{\frac{\Delta(x)}{\Delta(t)} = \frac{d(x)}{d(t)}}$. Kiirendus on tuletis kiirusest aja järgi ehk $\vec{a} = lim_{\Delta(t) \rightarrow 0}{\frac{\Delta(\overrightarrow{v})}{\Delta(t)}} = \frac{d(\overrightarrow{v})}{d(t)} = \frac{d(\frac{d(x)}{d(t)})}{d(t)}$ [@erichardcohen_1987_symbols p. 28]. Sellist liikumist nimetatakse ühtlaselt kiirenevaks liikumiseks ning keha kiiruse muutumist liikumise jooksul kirjeldab siis valem \@ref(eq:velocity):
 
 ```{=tex}
 \begin{align}
@@ -11,13 +11,13 @@ Kui objekt langeb vabalt, siis tema liikumine kiireneb tänu talle mõjuvale ras
 \end{align}
 ```
 
-Sellisel juhul on kiiruse ja aja vahel vastavalt valemile \@ref(eq:velocity) lineaarne sõltuvus ehk kiirus-aeg-graafikuks peaks tulema sirge nagu joonisel \@ref(fig:velocity-time-figure):
+Sellisel juhul on kiiruse ja aja vahel vastavalt valemile \@ref(eq:velocity) lineaarne sõltuvus ehk kiirus-aeg-graafikuks peaks tulema sirge nagu joonisel \@ref(fig:velocity-time):
 
 ```{=tex}
 \begin{figure}
 ```
 
-```{r velocity-time}
+```{r line}
 librarian::shelf(ggplot2, latex2exp)
 x <- seq(0,10,length=10001)
 y <- 10 * x
@@ -26,211 +26,182 @@ ggplot(data = df, aes(x = x, y = y)) + geom_line() + labs(x = TeX("$\\frac{t}{s}
 ```
 
 ```{=tex}
-      \caption{Kiirus-aeg-graafik ($v$ ja $t$) ühtlaselt kiireneva liikumise puhul, kui algkiirus $v_0 := 0$} \label{fig:velocity-time-figure}
+      \caption{Kiirus-aeg-graafik ($v$ ja $t$) ühtlaselt kiireneva liikumise puhul, kui algkiirus $v_0 := 0$} \label{fig:velocity-time}
 \end{figure}
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Kuna jõud on vektoriaalne suurus, siis on jõul nii väärtus kui suund.
-Vektoreid saab liita. Sihitisele mõjuva koondjõu vektor on sellele
-sihitisele mõjuvate jõudude vektorite summa. Kui ese on taustsüsteemi
-suhtes paigal, siis on sellele esemele selles taustsüsteemis mõjuvate
-jõudude summa null. Kui jõud mõjuvad samasihiliselt, on nende vektoreid
-lihtne liita: tuleb need vaid nihutada samale sirgele niimoodi, et iga
-järgmise jõu vektori alguspunkt ühtib eelmise jõu vektori lõpppunktiga.
-Selleks ei pea vektorid isegi mitte samasihilised olema.
-
-Siinses töös käsitleme vektoreid tasandil. Kui vektorid on üksteisega
-risti, saab nende resultantvektori pikkuse arvutada Pythagorase teoreemi
-abil. Kui vektorid pole üksteisega risti, siis kui on teada nende
-ühendatud kahe vektori vaheline nurk, saab kasutada resultantvektori
-pikkuse arvutamiseks koossinusteoreemi. Eks Pythagorase teoreem olegi
-koossinusteoreemi erijuht! Seetõttu esitan siinkohal koossinusteoreemi
-(\@ref(thm:koossiinusteoreem)):
-
-```{theorem koossiinusteoreem, name="Koossiinusteoreem"}
-Kolmnurga külje pikkus on võrdne ruutjuurega selle kolmnurga teiste külgede pikkuste ruutude ning nende teiste külgede pikkuste ja nende vahelise nurga koosinuse kahekordse korrutise vastandarvu summast. [@koossiinusteoreem]
-```
-
-```{r adding-vectors, fig.cap = "Jõuvektorite liitmine", fig.margin = TRUE}
-include_svg(file.path("töö-käik", "adding-vectors.svg"))
-```
-
-Joonisel \@ref(fig:adding-vectors) on esitatud vektorid
-$\overrightarrow{F}$ ja $\overrightarrow{Q}$, mis on liidetud vektoriks
-$\overrightarrow{R}$. Vektori $\overrightarrow{R}$ pikkuse saame
-arvutada nende liidetavate vektorite pikkuste ja nendevahelise nurga
-koosinuse abil, kui need vektorid eelnevalt üksteisele otsa järjestada
-geomeetriliselt. Lõik *AC* on sama pikk kui lõik *OB*, sest need on sama
-rööpküliku vastasküljed. Seega on $\overrightarrow{AC}$ sama mis
-$\overrightarrow{Q}$. Koosinusteoreemi rakendamiseks on vajalik kahe
-külje ja nende vahelise nurga suuruste teadmine. Kui see teadmine on
-olemas, saab arvutuse teostada. Kuna rööpküliku lähisnurkade summa on
-180°, siis valem summavektori pikkuse arvutamiseks on selline:
+Samas keha koordinaadi (antud juhul kõrguse) muutumist kirjeldab valem
 
 ```{=tex}
-\begin{flalign}
-|\overrightarrow{R}| & = \sqrt{|\overrightarrow{F}|^2 + |\overrightarrow{Q}|^2 - 2 \cdot |\overrightarrow{F}|^2 \cdot |\overrightarrow{Q}|^2 \cdot cos(180° - \alpha)} &\\
-& = \sqrt{|\overrightarrow{F}|^2 + |\overrightarrow{Q}|^2 + 2 \cdot |\overrightarrow{F}|^2 \cdot |\overrightarrow{Q}|^2 \cdot cos(\alpha)}
-(\#eq:cosine-theorem)
-\end{flalign}
-```
-Üks vektoriaalne suurus on gravitatsioonist tingitud standardkiirendus.
-Korduvates katsetes aastates 1995 - 2017 mõõdeti selleks Suurupis iga
-kord $9.8182 \cdot \frac{m}{s^2}$ [@oja2021absolute].
-
-```{r, echo=FALSE, results='asis'}
-#cat("\\twocolumn")
+\begin{equation}
+\color{green}{\bf{s === s_0 + v_0 \cdot t + \frac{a \cdot t^2}{2} + \frac{j \cdot t^3}{6}}},
+(\#eq:second-equation-of-motion-for-constant-jerk)
+\end{equation}
 ```
 
-Kuigi selles raportis soovitakse näha nurki kraadides, on vaja R'i jaoks
-teisendada need arvutuste jaoks radiaanideks:
+kus *s* on vahemaa, *s_0_* on lähe, *v_0_* on algkiirus, *a* on kiirendus, *t* on lõpphetk.
 
-$$nurk_{radiaanides} = \frac{nurk_{kraadides} \cdot \pi}{180}$$
-
-```{r, echo=FALSE, results='asis'}
-#cat("\\twocolumn")
+```{=tex}
+\begin{equation}
+F_g = G \cdot \frac{m_1 \cdot m_2}{r^2},
+(\#eq:gravitational-force)
+\end{equation}
 ```
+
+kus $F_g$ on raskusjõud, *G* on gravitatsioonikonstant, *m* on mass, *s* on punktmasside vaheline kaugus  [@haynes_2014_crc, p. 2-2].
+
+Jõud:
+
+```{=tex}
+\begin{equation}
+\vec{F} := \frac{d(\vec{p})}{d(t)} = m \cdot \vec{a}
+(\#eq:force)
+\end{equation}
+```
+
+[@haynes_2014_crc, p. 2-2]
+
+Vaba langemise ehk gravitatsiooni põhjustatud kiirendus  [@haynes_2014_crc, p. 2-12, 2-34, 14-21] valemitest \@ref(eq:force) ja \@ref(eq:gravitational-force):
+
+```{=tex}
+\begin{equation}
+\vec{g} := \frac{G \cdot m_1}{r^2}
+(\#eq:g)
+\end{equation}
+```
+
+```{r label = "cities", fig.cap = "gravitatsiooni standardkiirendus eri piirkondades Maal", echo = FALSE}
+include_svg("töö-käik/cities.svg")
+```
+
+"The value 9.806 m/s2 is midway between these two extremes, so it's sort of true to say that…
+
+g = 9.806 ± 0.026 m/s2
+
+This is not the same thing as an average, however. For that, use this value that someone else derived…
+
+g = 9.798 m/s2
+
+Here are my suggestions. Use the value of 9.8 m/s2 with two significant digits for calculations on the surface of the Earth unless a value of gravity is otherwise specified. That seems reasonable. Use the value of 9.80665 m/s2  [@haynes_2014_crc, p. 2-44, 14-11] with six significant digits only when you want to convert m/s2 to g. That is the law."
+```{r label = "g"}
+g <- 9.8
+```
+
+Selline valem kehtib objekti kohta, mis on täpselt Maa pinnal. Kui see asub pinna sees või selle kohal, siis tuleb kasutada sellist valemit:
+
+$$g = G * \frac{m}{(r + h) ^ 2},$$
+
+kus *g* on gravitatsioonikiirendus, *G* on gravitatsioonikonstant, *m* on Maa mass, *r* on Maa raadius, *h* on kõrgus Maa pinnast.
+
+Seega asukoha ja aja vahel on ühtlaselt kiireneva liikumise korral ruutsõltuvus ehk koordinaat-aja graafikuks peab tulema parabool (joonis \@ref(fig:parabola))
+
+
+```{=tex}
+\begin{figure}
+```
+
+```{r parabola}
+librarian::shelf(ggplot2, latex2exp)
+x <- seq(0,1,length = 10001)
+y <- 1.5 + 1.4 * x^2
+df <- data.frame(x = x, y = y)
+ggplot(data = df, aes(x = x, y = y)) + geom_line() + labs(x = TeX("$\\frac{t}{s}$"), y = TeX("$\\frac{x}{m}$"))
+```
+
+```{=tex}
+      \caption{Asukoht-aeg-($x$ vs $t$)-graafik ühtlaselt kiireneva liikumise puhul, kui algkiirus $v_0 := 0$ ja algkoordinaat $x_0 := 0$}
+  \label{fig:parabola}
+\end{figure}
+```
+
+Teostades mõõtmisi arvuti abil, jääb mõõtmiste vaheline ajavahemik $\Delta(t)$ väga väikeseks, kuid siiski lõplikuks suuruseks. St keha hetkkiirust määratakse seosega $v \approx \frac{\Delta(h)}{\Delta(t)} = \frac{h_2 - h_1}{t_2 - t_1}$. Kiirendust määratakse seosega a $\approx \frac{\Delta(v)}{\Delta(t)} = \frac{v_2 - v_1}{t_2 - t_1}$. Kuivõrd ajavahemik, mille korral keha asukoha muutus määratakse, on lõplik, tekib mõõtmisel viga. Kui kiirendust määratakse kiiruse muutumise järgi, siis vead kuhjuvad ning kiirenduse määramise viga on suurem. Seega jääb alati sisse mõõtmisviga, mida annab vähendada, kui mõõtmisi piisavalt palju korrata või mõõta keha asukohta väga väikeste ajavahemike järel (või väikeste asukoha muutuste järel). Selleks kasutame triipriba, kaheksa triibuga triipriba kukkumisel leitakse kiirus seitse korda, kiirenduse jaoks saadakse kuus väärtust - teeme korraga mitu mõõtmist. Kuivõrd iga kiiruse väärtus vastab erinevale ajahetkele, saab kiirenduse *g* leida vähimruutude meetodi abil - sobitame kiiruse sõltuvuse ajast sirgele ehk leiame regressioonisirge (võrdlen: $v = v_0 + g \cdot t$, $y = b + m \cdot x$ - kiiruse sõltuvus ajast ning *y* sõltuvus *x*'st) ning arvutan vastava sirge tõusu.
+
+Teine meetod kiirenduse leidmiseks regressioonanalüüsi meetodi abil on lähtudes seosest \@ref(eq:second-equation-of-motion-for-constant-jerk) ning sobitades asukoha muutuse sõltuvuse ajast parabooliga ning leides andmeanalüüsi kasutades parabooli võrrandis kordajad (võrdlen: $h := h_0 + v_0 \cdot t + \frac{g \cdot t^2}{2}$, $y := c + b \cdot x + a \cdot x^2$). Antud töös viin läbi andmete kogumise, analüüsi ning sirge või parabooli parameetrite leidmise kasutades *DataStudio* andmetöötlusvõimalusi.
+
+Suhteline erinevus: $R_g := \frac{|g - g_{measured}|}{g} \cdot 100\%$.
+
+```{=tex}
+\begin{equation}
+\Delta(g) := 2.57 \cdot \sqrt{\frac{\sum_{i := 1}^n{(\overline{g} - g_i)^2}}{n \cdot (n - 1)}}
+(\#eq:delta_g)
+\end{equation}
+```
+
 
 ## Töö sisu
 
-### Praktiline osa 1: Samas punktis rakendatud erisihiliste vektorite liitmisreegli katseline kinnitamine
+1. Ühendasime liidese digitaalpessa fotovärava pistiku.
 
-1.  Riputasime dünamomeetrite $D_1$ ja $D_2$ külge lõdvalt konksudega
-    kolmeharulise nööri (joonis \@ref(fig:setting-up-test-device)).
+2. Seadistasime tarkvara kasutama fotoväravat triipribaga, mille vahemaa on $0.05 \cdot m$.
 
-2.  Nullisime dünamomeetrite näidud nende skaala pööramisega. Selleks
-    tuli skaalat hoidev kruvi dünamomeetri korpusel veidi lahti keerata
-    ja dünamomeetri väliskestale kinnitatud rõngast ümber dünamomeetri
-    keerata. Pärast nullimist tuli skaalat hoidev kruvi taas kinni
-    keerata. Huvitav asjaolu oli, et ühel dünamomeetril see kruvi mitte
-    isegi ei logisenud, vaid seda polnudki.
+3. Keerasime fotovärava horisontaalasendisse (nagu näidatud joonisel \@ref(fig:setting-up-test-device)), nii et me võisime triipriba lasta fotovärava vahelt vertikaalselt alla läbi kukkuda. Et triipriba saaks kukkuda terves pikkuses fotovärava vahelt läbi, võib fotovärava asetada laua servale nii, et triipriba saaks kukkuda põrandale. Vaatasime, et triipriba ei kukuks vastu sensorit.
 
-3.  Vineerplaadile kinnitasime kinnitusnätsuga puhta valgevõitu
-    paberilehe *L*, mille vorming oli *A3*.
+4. Enne kui alustasime andmete salvestamisega hilisemaks analüüsiks, eksperimenteerisime fotovärava ja triipribaga. Andmete salvestamiseks vajutasime *Start*-nuppu. Andmete salvestamine lõpeb, kui vajutada *Stop*-nuppu. Proovisime mõned korrad enne põhilise katse sooritamist teha mõõtmisi - kas kiirus näidikul muutus, kas ilmusid andmed graafikule (*position* on kõrgus, *velocity* on kiirus) ning tabelisse (*acceleration* on kiirendus). Kustutasime need andmed enne mõõtmiste sooritamist.
 
-4.  Alla rippuva nööri otsa riputasime raskuse, mille massi *m*
-    märkisime üles.
+5. Katse läbiviimiseks toimisime järgmiselt. Hoidsime triipriba nii, et selle alumine serv oleks just fotovärava kiire kohal. Vajutasime *Start*-nuppu ning lasksime triipriba fotovärava vahelt läbi kukkuda. Kordasime mõõtmisi viis korda.
 
-    ```{r mass, attr.source = ".numberLines"}
-    m <- 1
-    ```
+6. Aktiveerisime graafikuakna. Selleks, et andmed sobituksid üle graafikuakna, tuli valida akna teguiribalt vasakpoolseim ikoon ning vajutada seda. Nii nägime graafikul suuremalt kogutud andmeid  kui ka nendele sobitatud vastavat kõrverat (või sirget).
 
-5.  Märkisime paberilehele nööride lõikumispunkti *O* ja sellest
-    võimalikult kaugele iga nööri suunas ühe punkti *A*, *B* ja *C*.
-    Seda on hästi võimalik teha nööri varju järgi, kui suunata
-    paberilehele paralleelne valgusvoog. Mina seda meetodit siiski ei
-    kasutanud, kuna ei tulnud selle peale ega viitsinud nii palju lugeda
-    ka, vaid panin kirjutusvahendi vastu nööri ja märkisin punktid.
+7. Uurisime kiirus-aeg-graafikut. Määrasime nende andmetega kõige paremini sobiva sirge (lineaarse funktsiooni graafiku) tõusu (tõusunurga tangens). Selleks valisime *Fit*-ikooni ning selle alt *Linear Fit* (kui see polnud juba valitud). Määrasime tõusu (*slope*) ning kandsime andmetabelisse \@ref(tab:velocity-time). Järgnevalt katsete kordamisel tuli analüüsi tegemisel valida *Data*-ikooni alt vaid vastav katseseeria (kas *Run #1*, *Run #2* vms - ainult selle ees pidi siis linnuke olema).
 
-6.  Fikseerisime dünamomeetri näidud.
+8. Analoogiliselt ülaltooduga valisime positsioon-aeg-graafikul välja *Fit*'i ja sealt *Quadratic Fit*'i, mis vastas seosele $y := A \cdot x^2 + B \cdot x + C$ (võrdlesime valemiga \@ref(eq:second-equation-of-motion-for-constant-jerk) ja asendasime valemis suurused *A*, *B* ja *C* vastavalt programmis *Quadratic Fit*'s antud konstantidele). Leidsime saadud tulemuste põhjal vaba langemise kiirenduse *g* ning kandsime tabelisse \@ref(tab:position-time).
 
-    ```{r first-experiment-f-q, attr.source = ".numberLines"}
-    f <- 4
-    q <- 8
-    ```
+9. Kolmas võimalus vaba langemise kiirenduse määramiseks antud katses on *Kiirenduse* (*acceleration*) tabelist - valides selle alt *Mean*'i. Standardhälve (*Standard Deviation*) iseloomustab iga katseseeria puhul andmete hajumist. Selle põhjal täitsime tabeli \@ref(tab:acceleration).
 
-7.  Nautisime õhkkonda. (Juhendis on see punkt tühi.)
+```{r label = "velocity-time"}
+run <- seq(1, 6)
+g_v_t <- c(9.72, 9.68, 9.9, 9.74, 9.96, 9.87)
+mean_g_v_t <- mean(g_v_t)
+delta_g_v_t <- 2.57 * sqrt(sum((mean_g_v_t - g_v_t)^2) / 30)
+lower_g_v_t <- mean_g_v_t - delta_g_v_t
+upper_g_v_t <- mean_g_v_t + delta_g_v_t
+relative_error_g_v_t <- delta_g_v_t / mean_g_v_t
+g_v_t_all <- data.frame(run, g_v_t)
+colnames(g_v_t_all) <- c("Katse", "$\\frac{g}{\\mathrm{\\frac{m}{s^2}}}$")
 
-8.  Eraldasime paberilehe vineerplaadilt ja ühendasime joonlaua abil
-    punktid *AO*, *BO* ja *CO*, st ühendasime joonlaua abil nööride
-    lõikumispunkti (jõudude rakenduspunkti) *O* punktidega *A*, *B* ja
-    *C*. Saime sirged, mis näitavad jõudude $\overrightarrow{F}$,
-    $\overrightarrow{Q}$ ja
-    $\overrightarrow{P} = m \cdot \overrightarrow{g}$ suunda.
+      librarian::shelf("kableExtra")
+print_table(g_v_t_all, caption = paste("Vaba langemise kiirendus kiirus-aeg-graafiku järgi: keskmine: $\\overline{g} := ", signif(mean_g_v_t, digits = 3), " \\cdot \\mathrm{\\frac{m}{s^2}}$, $g \\in [", signif(lower_g_v_t, digits = 3), ", ", signif(upper_g_v_t, digits = 3), "] \\cdot  \\mathrm{\\frac{m}{s^2}}$, suhteline viga: ", signif(relative_error_g_v_t, digits = 3))) %>% kable_styling(    bootstrap_options = c("striped", "bordered", "condensed", "responsive", "hover"),
+    latex_options = "scale_down",
+    full_width = TRUE
+      )
 
-9.  Mõõtsime vektorite $\overrightarrow{F}$ ja $\overrightarrow{Q}$
-    vahelise nurga $\alpha$ malli abil.
 
-    ```{r alpha, attr.source = ".numberLines"}
-    alpha <- 68
-    ```
 
-10. Kordasime katset teistsuguse tasakaalustava jõu ja nurga $\alpha$
-    korral.
-
-    ```{r first-experiment-second-round, attr.source = ".numberLines"}
-    m <- c(m, 2)
-    f <- c(f, 8)
-    q <- c(q, 16)
-    alpha <- c(alpha, 59)
-    ```
-
-### Praktiline osa 2: Rööpsete jõudude liitmine
-
-1.  Panime dünamomeetri aasadest läbi raudvarva (joonis
-    \@ref(fig:schema-joining-parallel-forces)) ja nullisime
-    dünamomeetrite näidud.
-
-2.  Riputasime kahte kohta raudvarvale erinevad raskused ja kuigi
-    soovitati märkida viltpliiatsi või markeriga varvale nende
-    rakenduspunktid *A* ja *B*, tegutsesime hoopis vastupidi paigutades
-    raskused muude katsetajate poolt juba varasemalt tähistatud
-    kohtadesse.
-
-    ```{r m1-m2, attr.source = ".numberLines"}
-    m_1 <- 1
-    m_2 <- 3.0012
-    f_from_device <- 12
-    q_from_device <- 26
-    ```
-
-3.  Võtsime raskused varvalt maha, ühendasime need ja riputasime koos
-    varvale. Nihutasime raskust mööda varvast senikaua, kuni
-    dünamomeetrid näitasid endisi väärtusi. Sellega olime leidnud
-    resultantjõu rakenduspunkti *M*.
-
-4.  Mõõtsime joonlaua abil resultantjõu rakenduspunkti ja eelnevalt
-    varvale märgitud rööpjõudude rakenduspunktide vahelised kaugused
-    *AM* ja *BM*. Kandsime andmed tabelisse \@ref(tab:parallel-forces).
-
-    ```{r am-bm, attr.source = ".numberLines"}
-    am <- 17.3
-    bm <- 9.8
-    ```
-
-5.  Sooritasime kirjeldatud viisil veel teise katse kasutades selleks
-    teisi raskusi ning rakenduspunktide *A* ja *B* teisi asukohti.
-
-    ```{r second-experiment-second-round, attr.source = ".numberLines"}
-    m_1 <- c(m_1, .5)
-    m_2 <- c(m_2, 5)
-    f_from_device <- c(f_from_device, 12)
-    q_from_device <- c(q_from_device, 42)
-    am <- c(am, 27.1)
-    bm <- c(bm, 2.3)
-    ```
-
-6.  Katse lõpetades pidime kustutama varvalt vildika jooned ära, kuid me
-    ei teinud seda, kuna me ei teinud sinna ka tähistusi.
-
-## Andmete kogumise-salvestamise metoodika.
-
-Sisendandmed mõõtsime ja salvestasime käsitsi.
-
-```{r, echo=FALSE, results='asis'}
-#cat("\\onecolumn")
 ```
+
+
+```{r label = "position-time"}
+g_x_t <- c(9.72, 9.68, 9.9, 9.74, 9.96, 9.86)
+mean_g_x_t <- mean(g_x_t)
+delta_g_x_t <- 2.57 * sqrt(sum((mean_g_x_t - g_x_t)^2) / 30)
+lower_g_x_t <- mean_g_x_t - delta_g_x_t
+upper_g_x_t <- mean_g_x_t + delta_g_x_t
+relative_error_g_x_t <- delta_g_x_t / mean_g_x_t
+g_x_t_all <- data.frame(run, g_x_t)
+colnames(g_x_t_all) <- c("Katse", "$\\frac{g}{\\mathrm{\\frac{m}{s^2}}}$")
+
+      librarian::shelf("kableExtra")
+print_table(g_x_t_all, caption = paste("Vaba langemise kiirendus positisioon-aeg-graafiku järgi: keskmine: $\\overline{g} := ", signif(mean_g_x_t, digits = 3), " \\cdot \\mathrm{\\frac{m}{s^2}}$, $g \\in [", signif(lower_g_x_t, digits = 3), ", ", signif(upper_g_x_t, digits = 3), "] \\cdot  \\mathrm{\\frac{m}{s^2}}$, suhteline viga: ", signif(relative_error_g_x_t, digits = 3))) %>% kable_styling(    bootstrap_options = c("striped", "bordered", "condensed", "responsive", "hover"),
+    latex_options = "scale_down",
+    full_width = TRUE
+      )
+```
+
+```{r label = "acceleration"}
+g_a <- c(9.74, 9.71, 9.94, 9.75, 9.98, 9.89)
+mean_g_a <- mean(g_a)
+delta_g_a <- 2.57 * sqrt(sum((mean_g_a - g_a)^2) / 30)
+lower_g_a <- mean_g_a - delta_g_a
+upper_g_a <- mean_g_a + delta_g_a
+relative_error_g_a <- delta_g_a / mean_g_a
+g_a_all <- data.frame(run, g_a)
+colnames(g_a_all) <- c("Katse", "$\\frac{g}{\\mathrm{\\frac{m}{s^2}}}$")
+
+      librarian::shelf("kableExtra")
+print_table(g_a_all, caption = paste("Vaba langemise kiirendus tabeli põhjal: keskmine: $\\overline{g} := ", signif(mean_g_a, digits = 3), " \\cdot \\mathrm{\\frac{m}{s^2}}$, $g \\in [", signif(lower_g_a, digits = 3), ", ", signif(upper_g_a, digits = 3), "] \\cdot  \\mathrm{\\frac{m}{s^2}}$, suhteline viga: ", signif(relative_error_g_a, digits = 3))) %>% kable_styling(    bootstrap_options = c("striped", "bordered", "condensed", "responsive", "hover"),
+    latex_options = "scale_down",
+    full_width = TRUE
+      )
+```
+
+

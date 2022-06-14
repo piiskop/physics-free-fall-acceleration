@@ -1,184 +1,21 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-
 # Andmeanalüüs
 
 Andmeanalüüsi tegin mina, peacecop kalmer:, üksi. Kui arvutustulemuste
 koht on kas tabelis
-\@ref(tab:comparing-theoretical-forces-to-actual-applied-to-same-point)
-või \@ref(tab:parallel-forces), siis need arvutused on näidatud vahetult
+\@ref(tab:velocity-time), \@ref(tab:acceleration)
+või \@ref(tab:position-time), siis need arvutused on näidatud vahetult
 enne vastavat tabelit.
 
-Andmeanalüüs esimese praktilise osa kohta:
+Andmeanalüüsi sisu:
 
-1.  Lasin arvutada raskusjõu ehk tasakaalustava jõu $P = m \cdot g$
-    (raskuse kaalu) arvväärtuse ja kandsin selle tabelisse
-    \@ref(tab:comparing-theoretical-forces-to-actual-applied-to-same-point).
+1. Lasin arvutada, kui palju erineb meie poolt erinevate analüüsimeetoditega saadud kiirenduse väärtus aktsepteeritud kiirenduse väärtusest.
 
-2.  Valisin sobiva mastaabi $1 \cdot 10^{-2} \cdot m = 1 N$ ja kandsin
-    joonistele \@ref(fig:adding-forces-1) ja \@ref(fig:adding-forces-2)
-    õige pikkusega lõigud (vektorite $\overrightarrow{F}$,
-    $\overrightarrow{Q}$, $\overrightarrow{P}$ pikkused), mis vastavad
-    dünamomeetri näidule. Kirjutasin juurde mastaabi, st mitu
-    pikkusühikut olen võtnud vastavaks ühele njuutonile.
+2. Lasin arvutada mõõteseeriate keskmiste tulemuste mõõtemääramatused vastavalt seosele \@ref(eq:delta_g).\@ref(eq:delta_g)
 
-3.  Konstrueerisin vektoritele $\overrightarrow{F}$ ja
-    $\overrightarrow{Q}$ rööpküliku. Kuigi juhendis on kirjas, et seda
-    tuleb teha joonlaua ja sirkli abil, kasutasin ma kaasaegset
-    vahendit, mille nimi on GeoGebra [@geogebra]. Jah, ma oskan
-    konstrueerida rööpkülikut nii kahe joonlaua kui sirkli ja
-    joonlauaga, aga niiviisi konstrueerimise tulemus ei ole
-    reprodutseeritav, kuigi nii saab konstrueerida nt looduses.
+3.  Kirjutasin välja iga katseseeria kohta *g* kujul $g \in (\overline{g} - \Delta(g), \overline{g} + \Delta(g))$ ja hindasin, kas aktsepteeritud tulemus jäi erinevate meetodite korral veapiiridesse.
 
-4.  Lasin röökülikule joonestada pikema diagonaali *R*.
+    Aktsepteeritud tulemus jäi igas katseseerias veapiiridesse.
 
-    ```{=tex}
-    \begin{figure}
-    \begin{subfigure}{0.55\textwidth}
-    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
-    \begin{axis}[
-    x=1cm,y=1cm,
-    axis lines=middle,
-    ymajorgrids=true,
-    xmajorgrids=true,
-    xmin=-4.448369560180092,
-    xmax=4,
-    ymin=-11,
-    ymax=12,
-    xtick={-4,-3,...,3},
-    ytick={-10,-9,...,11},
-    \axispapermm,
-    xlabel={jõud [N]},
-    ylabel={jõud [N]}]
-    \clip(-4.448369560180092,-10.07662339842799) rectangle (9.148475046770661,13.444828113324013);
-    \fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (0,0) -- (2.4721359549995796,7.608452130361228) -- (-0.592041817476332,10.179602569107386) -- (-3.0641777724759116,2.571150438746158) -- cycle;
-    \draw [->,line width=1pt] (0,0) -- (0,-9.8182);
-    \draw [->,line width=1pt] (0,0) -- (2.4721359549995796,7.608452130361228);
-    \draw [->,line width=1pt] (0,0) -- (-3.0641777724759116,2.571150438746158);
-    \draw [->,line width=.5pt] (-3.0641777724759116,2.571150438746158) -- (-0.592041817476332,10.179602569107386);
-    \draw [line width=.5pt,color=zzttqq] (0,0)-- (2.4721359549995796,7.608452130361228);
-    \draw [line width=.5pt,color=zzttqq] (2.4721359549995796,7.608452130361228)-- (-0.592041817476332,10.179602569107386);
-    \draw [line width=.5pt,color=zzttqq] (-0.592041817476332,10.179602569107386)-- (-3.0641777724759116,2.571150438746158);
-    \draw [line width=.5pt,color=zzttqq] (-3.0641777724759116,2.571150438746158)-- (0,0);
-    \draw [->,line width=1pt] (0,0)-- (-0.592041817476332,10.179602569107386);
-    \begin{scriptsize}
-    \draw [fill=ududff] (0,0) circle (2.5pt);
-    \draw[color=ududff] (1,0.8546729628492933) node {$O$};
-    \draw [fill=ududff] (0,-9.8182) circle (2.5pt);
-    \draw[color=ududff] (0.3105260522526718,-8.976891599099813) node {$C$};
-    \draw[color=black] (1,-4.296439320937871) node {$\overrightarrow{P}$};
-    \draw[color=black] (2,4.436918561219047) node {$\overrightarrow{Q}$};
-    \draw [fill=uuuuuu] (2.4721359549995796,7.608452130361228) circle (2pt);
-    \draw[color=uuuuuu] (2.7945649708302134,8.411380830943154) node {$B$};
-    \draw[color=black] (-2.3500527432952856,1) node {$\overrightarrow{F}$};
-    \draw [fill=uuuuuu] (-3.0641777724759116,2.571150438746158) circle (2pt);
-    \draw[color=uuuuuu] (-4,3.3648596595171503) node {$A$};
-    \draw [fill=uuuuuu] (-0.592041817476332,10.179602569107386) circle (2pt);
-    \draw[color=uuuuuu] (-1,10.97386308379159) node {$D$};
-    \draw[color=black] (0,5.718159687643265) node {$\overrightarrow{R} = 10.2$};
-    \end{scriptsize}
-    \end{axis}
-    \end{tikzpicture}
-      \caption{Esimese katse jõuvektorid on esitatud mõõtkavas 1:1.} \label{fig:adding-forces-1}
-    \end{subfigure}
-    \hspace{.2cm}
-    \begin{subfigure}{0.45\textwidth}
-    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
-    \begin{axis}[
-    x=.5cm,y=.5cm,
-    axis lines=middle,
-    ymajorgrids=true,
-    xmajorgrids=true,
-    xmin=-6,
-    xmax=6,
-    ymin=-22,
-    ymax=24.080091226829857,
-    xtick={-6,-8,...,6},
-    ytick={-20,-18,...,22},
-    \axispapermm,
-    xlabel={jõud [N]},
-    ylabel={jõud [N]}]
-    \clip(-10.05208112091064,-21.228977271558005) rectangle (20.34884225865241,24.080091226829857);
-    \fill[line width=2pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (0,0) -- (4.944271909999159,15.216904260722456) -- (-0.3042003219248981,21.254580902504635) -- (-5.248472231924057,6.037676641782177) -- cycle;
-    \draw [->,line width=1pt] (0,0) -- (0,-19.636);
-    \draw [->,line width=1pt] (0,0) -- (4.944271909999159,15.216904260722456);
-    \draw [->,line width=1pt] (0,0) -- (-5.248472231924057,6.037676641782177);
-    \draw [->,line width=.5pt] (-5.248472231924057,6.037676641782177) -- (-0.3042003219248981,21.254580902504635);
-    \draw [line width=.5pt,color=zzttqq] (0,0)-- (4.944271909999159,15.216904260722456);
-    \draw [line width=.5pt,color=zzttqq] (4.944271909999159,15.216904260722456)-- (-0.3042003219248981,21.254580902504635);
-    \draw [line width=.5pt,color=zzttqq] (-0.3042003219248981,21.254580902504635)-- (-5.248472231924057,6.037676641782177);
-    \draw [line width=.5pt,color=zzttqq] (-5.248472231924057,6.037676641782177)-- (0,0);
-    \draw [->,line width=1pt] (0,0)-- (-0.3042003219248981,21.254580902504635);
-    \begin{scriptsize}
-    \draw [fill=ududff] (0,0) circle (2.5pt);
-    \draw[color=ududff] (1,1.0747770924871178) node {$O$};
-    \draw [fill=ududff] (0,-19.636) circle (2.5pt);
-    \draw[color=ududff] (1,-20) node {$C$};
-    \draw[color=black] (1,-9.273229519402754) node {$\overrightarrow{P}$};
-    \draw[color=black] (4,8.031911481271836) node {$\overrightarrow{Q}$};
-    \draw [fill=uuuuuu] (4.944271909999159,15.216904260722456) circle (2pt);
-    \draw[color=uuuuuu] (5.382233825636756,16.158312153885916) node {$B$};
-    \draw[color=black] (-4,2.5948232614652915) node {$\overrightarrow{F}$};
-    \draw [fill=uuuuuu] (-5.248472231924057,6.037676641782177) circle (2pt);
-    \draw[color=uuuuuu] (-5.5,6.979571825825408) node {$A$};
-    \draw [fill=uuuuuu] (-0.3042003219248981,21.254580902504635) circle (2pt);
-    \draw[color=uuuuuu] (0.12053554840468864,22.23849682979861) node {$D$};
-    \draw[color=black] (-0.054854394169713494,11) node {$\overrightarrow{R} = 21.26$};
-    \end{scriptsize}
-    \end{axis}
-    \end{tikzpicture}
-      \caption{Teise katse jõuvektorid on esitatud mõõtkavas 1:2.} \label{fig:adding-forces-2}
-    \end{subfigure}
-      \caption{Katsete jõuvektorid} \label{fig:adding-forces}
-    \end{figure}
-    ```
+4.  Lasin arvutada katseseeriate suhtelise vea $\gamma := \frac{\Delta(g)}{\overline{g}}$ ja hindasin katse õnnestumist.
 
-5.  Märkisin GeoGebra joonistelt diagonaali *R* (resultantjõu) pikkuse.
-
-    ```{r r_eksp, attr.source = ".numberLines"}
-    r_eksp <- c(10.2, 21.26)
-    ```
-
-6.  Lasin arvutada resultantjõu teoreetilise väärtuse $R_{teor}$
-    vastavalt valemile \@ref(eq:cosine-theorem).
-
-    ```{r r_teor, attr.source = ".numberLines"}
-    r_teor <- sqrt(f^2 + q^2 + 2 * f * q * cos(alpha * pi / 180))
-    ```
-
-7.  Lasin arvutada jõudude $R_{eksp}$ ja $R_{teor}$ suhtelise erinevuse
-    $R_r = \frac{|R_{eksp} - R_{teor}|}{R_{teor}}$.
-
-    ```{r relative_rs, attr.source = ".numberLines"}
-    relative_difference_r_eksp_r_teor = abs(r_eksp - r_teor) / r_teor
-    ```
-
-8.  Võrdlesin resultantjõu suurust tasakaalustava jõuga (raskuse
-    kaaluga), milleks lasin arvutada resultantjõu $R_{eksp}$ ja
-    tasakaalustava jõu (raskuse kaaluga) *P* suhtelise erinevuse
-    $R_{RP} = \frac{|R_{eksp} - P|}{R_{eksp}}$.
-
-    ```{r relative_p, attr.source = ".numberLines"}
-    ```
-
-9.  Lasin koostada tabeli
-    \@ref(tab:comparing-theoretical-forces-to-actual-applied-to-same-point)
-    kõikide sisend- ja väljundandmetega.
-
-    ```{r comparing-theoretical-forces-to-actual-applied-to-same-point, attr.source = ".numberLines"}
-    ```
-
-Andmeanalüüs teise praktilise osa kohta:
-
-1.  Lasin arvutada jõud *F* ja *Q* masside $m_1$ ja $m_2$ kaudu (joonis
-    \@ref(fig:schema-joining-parallel-forces)). Muide, juhendis on
-    viidatud hoopis joonisele \@ref(fig:adding-vectors).
-
-4.  Lasin koostada tabeli \@ref(tab:parallel-forces) kõikide sisend- ja
-    väljundandmetega.
-
-    ```{r parallel-forces, attr.source = ".numberLines"}
-    ```
+    Iga katseseeria puhul oli suhteline viga väiksem kui 0.05, mistõttu võib lugeda eksperimendi õnnestunuks. Samas lähtudes pildil \@ref(fig:cities) olevatest andmetest, ei tohi mõõdetud väärtused nii palju erineda, kuna üle terve Maa ei ole gravitatsioonist tingitud kiirendus nii suurtes piirides kõikuv kui meie eksperimendis. Siiski, kui ümarada nimetatud kiirenduse arvväärtus ühelisteni, saime iga kord sama tulemuse $10 \cdot \mathrm{\frac{m}{s^2}}$, mida võib ligikaudsete arvutamiste jaoks kasutada.

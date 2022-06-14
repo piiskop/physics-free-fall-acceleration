@@ -4,7 +4,7 @@ author: 'peacecop kalmer:, Risto Koor'
 number: 1
 #date: "`r Sys.Date()`"
 date-work: "20220311"
-date-handing-over: "20220506"
+date-handing-over: "20220615"
 group: "MLLBk-1"
 site: bookdown::bookdown_site
 documentclass: article
@@ -15,7 +15,7 @@ description: |
   set in the _output.yml file.
   The HTML output format for this example is bookdown::bs4_book,
 biblio-style: newapa
-geometry: left=3cm, right=3cm, top=2cm, bottom=2cm
+#geometry: left=3cm, right=3cm, top=2cm, bottom=2cm
 fontsize: 12pt
 mainfont: Latin Modern Roman
 sansfont: Arial
@@ -32,7 +32,7 @@ link-citations: yes
 #subtitle: LABORATOORNE TÖÖ 1
 ---
 
-```{r setup, echo = FALSE}
+```{r setup, echo=FALSE, message=FALSE}
 # example R options set globally
 options(width = 60)
 options(bookdown.render.file_scope = FALSE)
@@ -60,4 +60,16 @@ if (!require("librarian")) {
 }
 
 library(librarian)
+
+print_table <- function(data_frame, caption) {
+    if (!is.null(knitr::opts_knit$get('rmarkdown.pandoc.to')) && (knitr::opts_knit$get('rmarkdown.pandoc.to') == "docx")) {
+      librarian::shelf("flextable")
+      table <- (flextable(data_frame))
+    } else {
+      librarian::shelf("kableExtra")
+      table <- (kable(data_frame, format = "latex", booktabs = TRUE, escape = FALSE, caption = caption, digits = 2))
+    } 
+  return(table)
+}
+
 ```
